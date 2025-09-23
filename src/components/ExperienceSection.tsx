@@ -1,6 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Building, Users } from "lucide-react";
+import { Calendar, MapPin, Building, Users, FlaskConical, Heart, Stethoscope, TrendingUp } from "lucide-react";
 
 const ExperienceSection = () => {
   const experiences = [
@@ -79,98 +78,119 @@ const ExperienceSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {experiences.map((exp, index) => (
-            <Card 
-              key={index} 
-              className="bg-card-gradient border-border shadow-medium hover:shadow-strong transition-smooth group animate-scale-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardHeader>
-                <div className="flex justify-between items-start mb-4">
-                  <Badge 
-                    className={`${getTypeColor(exp.type)} px-3 py-1`}
-                  >
-                    {exp.type}
-                  </Badge>
-                  <div className="text-right text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {exp.period}
+        {/* Experience Flow Diagram */}
+        <div className="relative mb-16">
+          {/* Central Timeline */}
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent-bright to-primary-light opacity-30"></div>
+          
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index} 
+                className={`flex items-center gap-8 animate-fade-in-up ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                {/* Experience Content */}
+                <div className="flex-1 max-w-lg">
+                  <div className="bg-card-gradient border border-border rounded-2xl p-6 shadow-medium hover:shadow-strong transition-smooth group">
+                    {/* Header */}
+                    <div className="flex justify-between items-start mb-4">
+                      <Badge className={`${getTypeColor(exp.type)} px-3 py-1`}>
+                        {exp.type}
+                      </Badge>
+                      <div className="text-right text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {exp.period}
+                        </div>
+                      </div>
                     </div>
+                    
+                    <h3 className="text-xl font-bold text-card-foreground group-hover:text-primary transition-smooth mb-2">
+                      {exp.title}
+                    </h3>
+                    
+                    <div className="space-y-2 text-muted-foreground mb-4">
+                      <div className="flex items-center gap-2">
+                        <Building className="w-4 h-4" />
+                        <span className="text-sm">{exp.organization}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        <span className="text-sm">{exp.location}</span>
+                      </div>
+                    </div>
+                    
+                    <ul className="space-y-2">
+                      {exp.description.map((item, idx) => (
+                        <li key={idx} className="text-sm text-card-foreground flex items-start gap-2">
+                          <div className="w-2 h-2 bg-accent-bright rounded-full mt-2 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                
-                <CardTitle className="text-xl text-card-foreground group-hover:text-primary transition-smooth">
-                  {exp.title}
-                </CardTitle>
-                
-                <div className="space-y-2 text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <Building className="w-4 h-4" />
-                    <span className="text-sm">{exp.organization}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm">{exp.location}</span>
-                  </div>
+
+                {/* Central Icon */}
+                <div className="hidden md:flex w-16 h-16 bg-card-gradient border-2 border-primary rounded-full items-center justify-center shadow-medium z-10">
+                  {exp.type === "Research" ? (
+                    <FlaskConical className="w-8 h-8 text-primary" />
+                  ) : (
+                    <Heart className="w-8 h-8 text-primary" />
+                  )}
                 </div>
-              </CardHeader>
-              
-              <CardContent>
-                <ul className="space-y-2">
-                  {exp.description.map((item, idx) => (
-                    <li key={idx} className="text-sm text-card-foreground flex items-start gap-2">
-                      <div className="w-2 h-2 bg-accent-bright rounded-full mt-2 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+
+                {/* Spacer for opposite side */}
+                <div className="flex-1 max-w-lg hidden md:block"></div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Community Contributions */}
-        <div className="mt-16 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-          <Card className="bg-card-gradient border-border shadow-medium">
-            <CardHeader>
-              <CardTitle className="text-2xl text-card-foreground flex items-center gap-3">
-                <Users className="text-primary" />
-                Community Contributions
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-card-foreground">Research Impact</h4>
-                  <ul className="space-y-2 text-sm text-card-foreground">
-                    <li className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-accent-bright rounded-full mt-2 flex-shrink-0" />
-                      <span>Participated in research projects improving farmer livelihoods</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-accent-bright rounded-full mt-2 flex-shrink-0" />
-                      <span>Contributed to disease prevention studies</span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-card-foreground">Community Outreach</h4>
-                  <ul className="space-y-2 text-sm text-card-foreground">
-                    <li className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-accent-bright rounded-full mt-2 flex-shrink-0" />
-                      <span>Rabies prevention awareness programs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-accent-bright rounded-full mt-2 flex-shrink-0" />
-                      <span>Livestock vaccination programs for smallholder farmers</span>
-                    </li>
-                  </ul>
+        {/* Impact Circles */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-16 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+          {/* Research Impact Circle */}
+          <div className="relative">
+            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-accent-bright/20 to-primary/20 border-4 border-accent-bright/40 flex items-center justify-center group hover:scale-105 transition-transform">
+              <div className="text-center">
+                <TrendingUp className="w-12 h-12 text-accent-bright mx-auto mb-2" />
+                <h4 className="text-lg font-bold text-foreground mb-2">Research Impact</h4>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p>Farmer livelihood improvement</p>
+                  <p>Disease prevention studies</p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
+
+          {/* Community Outreach Circle */}
+          <div className="relative">
+            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary/20 to-primary-light/20 border-4 border-primary/40 flex items-center justify-center group hover:scale-105 transition-transform">
+              <div className="text-center">
+                <Users className="w-12 h-12 text-primary mx-auto mb-2" />
+                <h4 className="text-lg font-bold text-foreground mb-2">Community Outreach</h4>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p>Rabies prevention programs</p>
+                  <p>Livestock vaccination</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Clinical Excellence Circle */}
+          <div className="relative">
+            <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-light/20 to-accent/20 border-4 border-primary-light/40 flex items-center justify-center group hover:scale-105 transition-transform">
+              <div className="text-center">
+                <Stethoscope className="w-12 h-12 text-primary-light mx-auto mb-2" />
+                <h4 className="text-lg font-bold text-foreground mb-2">Clinical Excellence</h4>
+                <div className="text-sm text-muted-foreground space-y-1">
+                  <p>Animal rescue operations</p>
+                  <p>Veterinary care provision</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
