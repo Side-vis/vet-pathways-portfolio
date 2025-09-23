@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
+import daphineProfile from "@/assets/daphine-profile.jpg";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -15,7 +16,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -26,39 +27,60 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-hero-gradient opacity-90" />
       
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto animate-fade-in-up">
-        <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-          Kamusiime <span className="text-accent-bright">Daphine</span>
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-primary-foreground/90 mb-4 font-light">
-          Aspiring Veterinary Doctor
-        </p>
-        
-        <p className="text-lg md:text-xl text-primary-foreground/80 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Passionate about animal health, welfare, and advancing veterinary medicine through research and community service
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            onClick={scrollToAbout}
-            className="text-lg px-8 py-6"
-          >
-            Explore My Journey
-            <ArrowDown className="ml-2 animate-bounce" />
-          </Button>
-          
-          <Button 
-            variant="contact" 
-            size="lg" 
-            onClick={downloadResume}
-            className="text-lg px-8 py-6"
-          >
-            <Download className="mr-2" />
-            View Resume
-          </Button>
+      <div className="relative z-10 px-6 max-w-6xl mx-auto animate-fade-in-up">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+              Kamusiime <span className="text-accent-bright">Daphine</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-4 font-light">
+              Aspiring Veterinary Doctor
+            </p>
+            
+            <p className="text-lg md:text-xl text-primary-foreground/80 mb-12 max-w-2xl leading-relaxed">
+              Passionate about animal health, welfare, and advancing veterinary medicine through research and community service
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                onClick={scrollToAbout}
+                className="text-lg px-8 py-6"
+              >
+                Explore My Journey
+                <ArrowDown className="ml-2 animate-bounce" />
+              </Button>
+              
+              <Button 
+                variant="contact" 
+                size="lg" 
+                onClick={downloadResume}
+                className="text-lg px-8 py-6"
+              >
+                <Download className="mr-2" />
+                View Resume
+              </Button>
+            </div>
+          </div>
+
+          {/* Profile Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative">
+              <div className="w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary-light/30 shadow-glow">
+                <img 
+                  src={daphineProfile} 
+                  alt="Daphine Kamusiime - Aspiring Veterinary Doctor"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Decorative elements around the image */}
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent-bright/60 rounded-full animate-float" />
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary-light/50 rounded-full animate-float" style={{ animationDelay: '1s' }} />
+            </div>
+          </div>
         </div>
       </div>
       
