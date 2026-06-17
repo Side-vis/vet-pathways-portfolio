@@ -1,58 +1,151 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Camera, Plus } from "lucide-react";
+import { Camera } from "lucide-react";
 import { useState } from "react";
+import sampleCollectionImage from "@/assets/Samplecollection2.jpeg";
+import labworkImage from "@/assets/Labwork.jpeg";
+import labworkTwoImage from "@/assets/Labwork2.jpeg";
+import swineImage from "@/assets/Swine.jpeg";
+import wildlifeImage from "@/assets/wildlife2.jpeg";
+import rabiesImage from "@/assets/Rabies1.jpeg";
+import surgeryImage from "@/assets/Surgery2.jpeg";
+import animalTreatingImage from "@/assets/AnimalTreating.jpeg";
+import outreachImage from "@/assets/Outreach.jpeg";
+import outreachTwoImage from "@/assets/Outreach2.jpeg";
+import publicSpeakingImage from "@/assets/PublicSpeaking.jpeg";
+import communityImage from "@/assets/Community.jpeg";
+import poultryImage from "@/assets/Poultry.jpeg";
+import examinationImage from "@/assets/Examination.jpeg";
+import eventsImage from "@/assets/Events1.jpeg";
+import norbrookAchievementImage from "@/assets/NorbrookAchievement.jpeg";
+import sdgImage from "@/assets/SDG.jpeg";
 
 const PortfolioGallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Placeholder portfolio items - in real implementation, these would come from a CMS or database
   const portfolioItems = [
     {
       id: 1,
-      title: "Cattle Vaccination Program",
-      description: "Participating in a livestock vaccination program for smallholder farmers in rural Uganda",
+      title: "African Swine Fever Field Work",
+      description: "Field sample collection and farmer sensitization for ASF surveillance and control.",
       category: "Field Work",
-      image: "https://images.unsplash.com/photo-1560472354-a3ea96f36a6f?w=600&h=400&fit=crop"
+      image: swineImage
     },
     {
       id: 2,
-      title: "Laboratory Research",
-      description: "Conducting PCR analysis for African Swine Fever research at DIDRA laboratory",
+      title: "Laboratory PCR Workflow",
+      description: "Hands-on molecular work including extraction and PCR processing for veterinary research.",
       category: "Research",
-      image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=400&fit=crop"
+      image: labworkImage
     },
     {
       id: 3,
-      title: "Wildlife Conservation",
-      description: "Sample collection in Murchison Falls National Park for Mycobacterium research",
+      title: "Wildlife Conservation Survey",
+      description: "Fieldwork in wildlife settings supporting mycobacterial disease surveillance studies.",
       category: "Wildlife",
-      image: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=600&h=400&fit=crop"
+      image: wildlifeImage
     },
     {
       id: 4,
-      title: "Community Outreach",
-      description: "Rabies vaccination and public awareness program with USPCA",
+      title: "Rabies Vaccination Campaign",
+      description: "Community-level rabies prevention, awareness, and vaccination support.",
       category: "Community",
-      image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop"
+      image: rabiesImage
     },
     {
       id: 5,
-      title: "Veterinary Care",
-      description: "Providing medical treatment and surgical care at Twiga Veterinary Clinic",
+      title: "Clinical Surgery Practice",
+      description: "Assisting and performing procedures as part of practical veterinary clinical care.",
       category: "Clinical",
-      image: "https://images.unsplash.com/photo-1559190394-df5a28aab5c5?w=600&h=400&fit=crop"
+      image: surgeryImage
     },
     {
       id: 6,
-      title: "Animal Welfare",
-      description: "Working with rescued animals at Uganda Society for Protection and Care of Animals",
+      title: "Animal Treatment and Recovery",
+      description: "Direct care and treatment support for companion and rescued animals.",
       category: "Welfare",
-      image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop"
+      image: animalTreatingImage
+    },
+    {
+      id: 7,
+      title: "Sample Collection in Practice",
+      description: "Structured sample collection in field and clinic settings for diagnostics.",
+      category: "Field Work",
+      image: sampleCollectionImage
+    },
+    {
+      id: 8,
+      title: "Advanced Lab Procedures",
+      description: "Additional lab sessions focused on sample handling and testing quality.",
+      category: "Research",
+      image: labworkTwoImage
+    },
+    {
+      id: 9,
+      title: "Community Veterinary Outreach",
+      description: "Working with communities to improve animal care and preventive practices.",
+      category: "Community",
+      image: outreachImage
+    },
+    {
+      id: 10,
+      title: "Outreach in Action",
+      description: "Extended field engagement with farmers and pet owners on animal health.",
+      category: "Community",
+      image: outreachTwoImage
+    },
+    {
+      id: 11,
+      title: "Public Speaking and Advocacy",
+      description: "Delivering awareness talks and educational sessions on veterinary themes.",
+      category: "Leadership",
+      image: publicSpeakingImage
+    },
+    {
+      id: 12,
+      title: "Community Engagement",
+      description: "Building local partnerships for better livestock and companion animal welfare.",
+      category: "Community",
+      image: communityImage
+    },
+    {
+      id: 13,
+      title: "Poultry Health Monitoring",
+      description: "Applied poultry care and observation in practical production environments.",
+      category: "Field Work",
+      image: poultryImage
+    },
+    {
+      id: 14,
+      title: "Clinical Examination Skills",
+      description: "Comprehensive physical assessment and diagnostics in veterinary consultations.",
+      category: "Clinical",
+      image: examinationImage
+    },
+    {
+      id: 15,
+      title: "Professional Events Participation",
+      description: "Contributing to veterinary events and knowledge-sharing forums.",
+      category: "Leadership",
+      image: eventsImage
+    },
+    {
+      id: 16,
+      title: "Professional Achievement",
+      description: "Milestone recognition for dedication, growth, and veterinary excellence.",
+      category: "Leadership",
+      image: norbrookAchievementImage
+    },
+    {
+      id: 17,
+      title: "Sustainable Development Advocacy",
+      description: "Connecting veterinary practice with sustainability and community development goals.",
+      category: "Leadership",
+      image: sdgImage
     }
   ];
 
-  const categories = ["All", "Field Work", "Research", "Wildlife", "Community", "Clinical", "Welfare"];
+  const categories = ["All", "Field Work", "Research", "Wildlife", "Community", "Clinical", "Welfare", "Leadership"];
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filteredItems = activeFilter === "All" 
@@ -60,7 +153,7 @@ const PortfolioGallery = () => {
     : portfolioItems.filter(item => item.category === activeFilter);
 
   return (
-    <section className="py-20 bg-background">
+    <section id="portfolio" className="py-20 bg-background scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -122,21 +215,10 @@ const PortfolioGallery = () => {
           ))}
         </div>
 
-        {/* Add More Photos Section */}
         <div className="text-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
-          <Card className="bg-card-gradient border-border border-dashed hover:border-solid transition-smooth inline-block">
-            <CardContent className="p-8">
-              <Plus className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-card-foreground mb-2">Add More Photos</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Upload photos from your fieldwork, research, and veterinary activities
-              </p>
-              <Button variant="portfolio" size="sm">
-                <Camera className="mr-2 w-4 h-4" />
-                Upload Photos
-              </Button>
-            </CardContent>
-          </Card>
+          <p className="text-sm text-muted-foreground">
+            Portfolio powered by real documentation from field work, research, outreach, and clinical practice.
+          </p>
         </div>
 
         {/* Image Modal */}

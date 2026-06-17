@@ -1,14 +1,34 @@
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Building, Users, FlaskConical, Heart, Stethoscope, TrendingUp } from "lucide-react";
+import swineImage from "@/assets/Swine.jpeg";
+import wildlifeImage from "@/assets/wildlife1.jpeg";
+import wildlifeTwoImage from "@/assets/wildlife2.jpeg";
+import rabiesImage from "@/assets/Rabies1.jpeg";
+import surgeryImage from "@/assets/Surgery.jpeg";
 
 const ExperienceSection = () => {
   const experiences = [
+    {
+      title: "Wildlife Veterinarian",
+      organization: "Bugoma Primate Conservation Project",
+      location: "Kikuube, Western Region, Uganda",
+      period: "Dec 2025 - Present",
+      type: "Research",
+      image: wildlifeTwoImage,
+      description: [
+        "Lead wildlife health and conservation initiatives for primate populations",
+        "Coordinate chimpanzee health surveillance and rapid response to disease risks",
+        "Design and maintain protocols for disease transmission monitoring at the human-wildlife interface",
+        "Support health and disease data systems for ongoing chimpanzee monitoring"
+      ]
+    },
     {
       title: "Research Assistant",
       organization: "African Swine Fever Project, DIDRA",
       location: "Kampala, Uganda",
       period: "2022",
       type: "Research",
+      image: swineImage,
       description: [
         "Assisted in laboratory sample collection for African Swine Fever research",
         "Sensitized pig farmers on ASF control measures",
@@ -21,6 +41,7 @@ const ExperienceSection = () => {
       location: "Murchison Falls National Park",
       period: "In Progress",
       type: "Research",
+      image: wildlifeImage,
       description: [
         "Molecular survey of Mycobacterium avium subspecies paratuberculosis",
         "Fecal sample collection and laboratory analysis",
@@ -33,6 +54,7 @@ const ExperienceSection = () => {
       location: "Uganda",
       period: "2023 - Present",
       type: "Volunteer",
+      image: rabiesImage,
       description: [
         "Provide veterinary care to rescued animals",
         "Conduct public awareness on proper animal care",
@@ -46,6 +68,7 @@ const ExperienceSection = () => {
       location: "Entebbe, Uganda",
       period: "2022 - Present",
       type: "Volunteer",
+      image: surgeryImage,
       description: [
         "Provided veterinary care to cats and dogs",
         "Performed surgeries and medical treatments",
@@ -66,7 +89,7 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section id="experience" className="py-20 bg-background scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -119,6 +142,15 @@ const ExperienceSection = () => {
                         <MapPin className="w-4 h-4" />
                         <span className="text-sm">{exp.location}</span>
                       </div>
+                    </div>
+
+                    <div className="mb-4 overflow-hidden rounded-xl border border-border/60">
+                      <img
+                        src={exp.image}
+                        alt={`${exp.title} at ${exp.organization}`}
+                        className="h-44 w-full object-cover transition-smooth group-hover:scale-105"
+                        loading="lazy"
+                      />
                     </div>
                     
                     <ul className="space-y-2">

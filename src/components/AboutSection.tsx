@@ -1,4 +1,5 @@
 import { GraduationCap, Heart, Microscope, Award, Target, BookOpen } from "lucide-react";
+import pictureOne from "@/assets/Picture1.jpeg";
 
 const AboutSection = () => {
   return (
@@ -41,8 +42,23 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Central Circular Infographic */}
-          <div className="relative animate-scale-in" style={{ animationDelay: '0.4s' }}>
+          {/* Profile Visual + Circular Infographic */}
+          <div className="flex flex-col items-center gap-8 animate-scale-in" style={{ animationDelay: '0.4s' }}>
+            <div className="w-full max-w-sm bg-card-gradient border border-border rounded-3xl p-3 shadow-medium">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src={pictureOne}
+                  alt="Daphine during veterinary field and professional activities"
+                  className="w-full h-72 object-cover object-center"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <p className="text-white text-sm font-medium">Hands-on veterinary practice and leadership in action</p>
+                </div>
+              </div>
+            </div>
+
             <div className="w-80 h-80 relative">
               {/* Central Circle */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-accent-bright/20 border-4 border-primary/30 flex items-center justify-center">

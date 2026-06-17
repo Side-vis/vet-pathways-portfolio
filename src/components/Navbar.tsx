@@ -15,7 +15,12 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const navOffset = 96;
+    const sectionTop = section.getBoundingClientRect().top + window.scrollY - navOffset;
+    window.scrollTo({ top: sectionTop, behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
 

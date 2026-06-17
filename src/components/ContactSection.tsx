@@ -40,7 +40,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-section-gradient">
+    <section id="contact" className="py-20 bg-section-gradient scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -121,13 +121,27 @@ const ContactSection = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
-                  <Button variant="outline" className="w-full justify-start">
-                    <Linkedin className="mr-2 w-4 h-4" />
-                    Connect on LinkedIn
+                  <Button asChild variant="outline" className="w-full justify-start">
+                    <a
+                      href="https://www.linkedin.com/in/daphine-kamusiime-251934286/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open LinkedIn profile"
+                    >
+                      <Linkedin className="mr-2 w-4 h-4" />
+                      Connect on LinkedIn
+                    </a>
                   </Button>
-                  <Button variant="outline" className="w-full justify-start">
-                    <Mail className="mr-2 w-4 h-4" />
-                    ResearchGate Profile
+                  <Button asChild variant="outline" className="w-full justify-start">
+                    <a
+                      href="https://www.researchgate.net/profile/Daphine-Kamusiime"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open ResearchGate profile"
+                    >
+                      <Mail className="mr-2 w-4 h-4" />
+                      ResearchGate Profile
+                    </a>
                   </Button>
                 </div>
               </CardContent>
