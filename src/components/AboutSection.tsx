@@ -121,7 +121,7 @@ const AboutSection = () => {
               <div className="text-sm space-y-1">
                 <p className="font-medium">Bachelor of Veterinary Medicine</p>
                 <p className="text-muted-foreground">Makerere University (2021-2025)</p>
-                <p className="text-accent-bright font-semibold">CGPA: 4.67</p>
+                <p className="text-accent-bright font-semibold">CGPA: 4.68</p>
               </div>
             </div>
           </div>

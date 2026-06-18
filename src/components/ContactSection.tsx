@@ -34,7 +34,7 @@ const ContactSection = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/assets/Daphine_CV.pdf';
+    link.href = '/assets/KAMUSIIME DAPHINE_RESUME.pdf';
     link.download = 'Daphine_Kamusiime_CV.pdf';
     link.click();
   };
